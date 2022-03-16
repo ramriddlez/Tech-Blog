@@ -1,0 +1,12 @@
+[
+    {
+        "title":"happy days",
+        "content": "i beleive in happy days",
+        "user_id": 1
+    },
+    {
+        "title":"sad days",
+        "content": "i dont beleive in happy days",
+        "user_id": 2
+    }
+]

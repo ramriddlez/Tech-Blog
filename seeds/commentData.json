@@ -1,0 +1,12 @@
+[
+    {
+        "content": "i beleive in happy days",
+        "user_id": 1,
+        "post_id": 2
+    },
+    {
+        "content": "i beleive in great days",
+        "user_id": 2,
+        "post_id": 1
+    }
+]
