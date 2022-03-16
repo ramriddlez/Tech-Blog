@@ -13,11 +13,13 @@ const seedDatabase = async () => {
         individualhooks: true
     });
     console.log ("users seeded complete")
-    await Comment.bulkCreate(commentData);
-
-    console.log("comments created on blog post")
+   
     await BlogPost.bulkCreate(blogPostData);
     console.log("blog post created")
+    
+    await Comment.bulkCreate(commentData);
+    console.log("comments created on blog post")
+   
     process.exit(0);
   };
   
