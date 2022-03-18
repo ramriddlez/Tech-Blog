@@ -1,0 +1,43 @@
+.login {
+    margin: 2.5em 0;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px 5px var(--secondary-color);
+    font-size: 1.35rem;
+  }
+  
+  .login article {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+  }
+  
+  .login article:first-of-type {
+    flex: 1 1 65%;
+    background-color: var(--primary-color);
+  }
+  
+  .login article:last-of-type {
+    flex: 1 1 30%;
+    background-color: var(--tertiary-color);
+  }
+  .login form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5em;
+    padding-top: 1em;
+  }
+  
+  .login form input,
+  .login form button {
+    padding: 0.5em;
+    font-size: 1.25rem;
+    border-radius: 5px;
+  }
+  
+  .login form button {
+    color: white;
+    background-color: var(--secondary-color);
+  }
