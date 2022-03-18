@@ -7,6 +7,7 @@ router.post('/add', withAuth, async (req, res) => {
         const commentData = await Comment.create({
             content: req.body.content,
             user_id: req.session.user_id,
+            date_created: req.body.date_created,
             post_id: req.body.id,
 
         });
@@ -18,6 +19,15 @@ router.post('/add', withAuth, async (req, res) => {
         const postData = await BlogPost.findByPk(req.body.id);
 
         const post = postData.get({ plain: true });
+
+        const postUpdatedData = await post.update({
+            comment_count: post.comment_count + 1
+        }, {
+            where: {
+                id: req.body.id,
+                user_id: req.session.user_id
+            }
+        });
 
         res.json({ message: 'Comment successfully posted!' });
 

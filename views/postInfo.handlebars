@@ -1,5 +1,22 @@
 <div>
-   <h2>{{post.title}}</h2>
-   <p>{{post.content}}</p>
-   <p>Posted by: {{post.user.username}} on {{format_date post.date_created}}</p>
+    <div>
+        <h2>{{post.title}}</h2>
+        <p>{{post.content}}</p>
+        <p>Posted by: {{post.user.username}} on {{format_date post.date_created}}</p>
+        <h4>comments</h4>
+    </div>
+{{#if loggedIn}}
+  <h3>Leave a comment!</h3>
+    <form class="form comment-form">
+
+      <div class="input-group input-group-sm">
+        <input type="text" class="form-control post-title mb-3 comment" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="email-login"/>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" data-id="{{id}}">Post</button>
+      </div>
+
+    </form>
+{{/if}}
 </div>
