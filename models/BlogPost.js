@@ -21,6 +21,10 @@ BlogPost.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    comment_count: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
 
     date_created: {
         type: DataTypes.DATE,

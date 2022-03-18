@@ -1,0 +1,30 @@
+<div>
+  <div class="row">
+    <h2>Welcome, {{username}}!</h2>
+  </div>
+</div>
+
+<div class="mt-4">
+  <div class="row">
+    <div class="col-md-6 border-bottom">
+      <h3>Your Dashboard</h3>
+      </div>
+      <div class="col-md-6 text-right border-bottom">
+      <h3><a href="/api/posts/create">Create Post</a></h3>
+  </div>
+  </div>
+<br>
+  {{#if posts.length}}
+  <div class="row">
+    {{#each posts as |post|}}
+      <div class="col-md-6 mb-2 post-list">
+        <h3><a href="/api/posts/edit/{{post.id}}">{{post.title}}</a></h3>
+      </div>
+    {{/each}}
+  {{/if}}
+  </div>
+
+  <div class="text-center">
+  </div>
+
+</div>

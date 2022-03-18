@@ -6,7 +6,6 @@
     <h4>comments</h4>
   </div>
 
-  {{#if comments.length}}
   {{#each comments as |comment|}}
   <div class="border-bottom row">
     <div class="col-md-11">
@@ -19,18 +18,18 @@
   </div>
   <br>
   {{/each}}
-  {{/if}}
+
   {{#if loggedIn}}
   <h3>Leave a comment!</h3>
   <form class="form comment-form">
 
     <div class="input-group input-group-sm">
       <input type="text" class="form-control post-title mb-3 comment" aria-label="Sizing example input"
-        aria-describedby="inputGroup-sizing-sm" id="email-login" />
+        aria-describedby="inputGroup-sizing-sm" id="comment" />
     </div>
 
     <div class="form-group">
-      <button class="btn btn-primary" type="submit" data-id="{{id}}">Post</button>
+      <button class="btn btn-primary" type="submit" id="submit-comment">Post</button>
     </div>
 
   </form>
