@@ -26,6 +26,31 @@ router.get('/', async (req,res) => {
     }
 });
 
+router.get('/post/:id', async (req,res) => {
+    try {
+        const postData = await BlogPost.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+            ],
+        });
+
+        const post = postData.get({ plain: true})
+
+        console.log(post);
+        res.render('postInfo', {
+            post,
+            loggedIn: req.session.loggedIn
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+
 router.get('/dashboard', withAuth, async (req,res) => {
     try{
         const userData = await User.findByPk(req.session.user_id, {
