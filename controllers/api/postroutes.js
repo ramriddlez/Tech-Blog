@@ -28,7 +28,7 @@ router.put('/update/:id', withAuth, async (req,res) => {
         }
 
         res.render('dashboard', {
-            logged_in: req.session.logged_in
+            logged_in: req.session.loggedIn
         });
 
     } catch (err) {
@@ -50,7 +50,7 @@ router.delete('/:id', withAuth, async (req,res) => {
         }
         
         res.render('dashboard', {
-            logged_in: req.session.logged_in
+            logged_in: req.session.loggedIn
         });
 
     } catch (err) {
