@@ -38,5 +38,25 @@ router.get('/', withAuth, async (req, res) => {
     });
 });
 
+router.post('/create', async (req, res) => {
+  try {
+      const postData = await BlogPost.create({
+          title: req.body.title,
+          content: req.body.content,
+          
+          
+      });
+
+      console.log(postData);
+
+      res.json({ message: 'Post successfully created!' });
+      res.render('dashboard', { loggedIn: req.session.loggedIn });
+
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+
 
 module.exports = router;
