@@ -46,6 +46,6 @@ const loginFormHandler = async (event) => {
     .addEventListener('click', loginFormHandler);
   console.log("connected")
   document
-    .querySelector('#sign-up')
+    .getElementById('signup')
     .addEventListener('click', signupFormHandler);
   

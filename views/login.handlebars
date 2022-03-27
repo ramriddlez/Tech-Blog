@@ -3,47 +3,82 @@
     
     <link rel="stylesheet" type="text/css" href="/public/css/login.css">
 </head>
-<div class="row justify-space-between-md">
-  <div class="login-card">
-    <br><br><br><br><br>
-    <h2 class="page-title">Login</h2>
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">Username:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">Password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit" id="sign-in">Login</button>
-      </div>
-    </form>
-  </div>
-  <h3>Not a member? Sign up Below!</h3>
-  <br><br>
-  <div class="login-card">
-    <br><br><br><br><br>
-    <h2 class="page-title">Signup</h2>
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="username-signup">Username:</label>
-        <input class="form-input" type="text" id="new-username" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">Email:</label>
-        <input class="form-input" type="text" id="email" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">Password:</label>
-        <input class="form-input" type="password" id="new-pswd" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit" id="sign-up">Signup</button>
-      </div>
-    </form>
-  </div>
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Email" >
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
 </div>
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="username" placeholder="Username" id="email-login">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password" id="password-login">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <button class="button is-success" id="sign-in">
+      Login
+    </button>
+  </p>
+</div><br>
+  <h2><strong> 	&#128071; Not a member? Sign up Below! 	&#128071; </strong></h2>
+  <br><br>
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="username" placeholder="Username" id="new-username">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Email" id="email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password" id="new-pswd">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+<div class="field">
+  <p class="control">
+    <button class="button is-success" id="signup">
+      Sign Up!
+    </button>
+  </p>
+</div>
+
 
 <script src="/js/login.js"></script>
