@@ -5,12 +5,12 @@
     <p>Posted by: {{post.user.username}} on {{format_date post.date_created}}</p>
     <h4>Comments</h4>
   </div>
-{{#if comments.length}}
+
   {{#each comments as |comment|}}
   <div class="border-bottom row">
     <div class="col-md-11">
       <p>{{comment.content}}</p>
-      <p>Posted by: {{comment.user_name}}</p>
+      <p>Posted by: {{comment.user_id}}</p>
     </div>
     <div class="col-md-1">
       <p>{{format_date comment.date_created}}</p>
@@ -18,15 +18,16 @@
   </div>
   <br>
   {{/each}}
-{{/if}}
+  
 
   {{#if loggedIn}}
-  <h3>Leave a comment!</h3>
-  <form class="form comment-form">
 
-    <div class="input-group input-group-sm">
-      <input type="text" class="form-control post-title mb-3 comment" aria-label="Sizing example input"
-        aria-describedby="inputGroup-sizing-sm" id="comment" />
+  <form class="comment-form">
+
+    <div class="form-group shadow-textarea">
+      <label for="exampleFormControlTextarea6"><h5>Leave a comment!</h5></label>
+      <textarea class="form-control z-depth-1" id="Textarea6" rows="3"
+        placeholder="Write comment here..."></textarea>
     </div>
 
     <div class="form-group">
@@ -35,7 +36,7 @@
 
   </form>
   {{else}}
-  <p> Please login/sign-up to leave a comment!</p>
+  <p> Please <a href="/login">login/sign-up</a> to leave a comment!</p>
   {{/if}}
 </div>
 

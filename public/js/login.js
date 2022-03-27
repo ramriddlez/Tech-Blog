@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert('Failed to log in.');
+        alert('Failed to log in! Make sure password is atleast 6 characters!');
       }
     }
   };
@@ -36,7 +36,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert('Failed to sign up.');
+        alert('Failed to sign up. Make sure password is atleast 6 characters!');
       }
     }
   };

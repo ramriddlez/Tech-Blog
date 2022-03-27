@@ -23,8 +23,8 @@ const commentHandler = async (event) => {
 };
   
 document
-    .querySelector('#submit-comment')
-    .addEventListener('click', commentHandler);
+    .querySelector('.comment-form')
+    .addEventListener('submit', commentHandler);
 // console.log(document.querySelector('#submit-comment').getAttribute('data-post_id') );
 
 console.log('connected')
