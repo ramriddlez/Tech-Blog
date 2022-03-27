@@ -1,6 +1,6 @@
 <div>
   <div class="row">
-    <h2>Welcome, {{username}}!</h2>
+    <h2>Welcome, {{user.username}}!</h2>
   </div>
 </div>
 
@@ -8,20 +8,18 @@
   <div class="row">
     <div class="col-md-6 border-bottom">
       <h3>Your Dashboard</h3>
-      </div>
-      <div class="col-md-6 text-right border-bottom">
+    </div>
+    <div class="col-md-6 text-right border-bottom">
       <h3><a href="/api/posts/create">Create Post</a></h3>
+    </div>
   </div>
+  <br>
+</div>
+<div>
+  {{#each posts as |post|}}
+  <div class="col-md-6 mb-2 post-list">
+    <h3><a href="/api/posts/edit/{{post.id}}">{{post.title}}</a></h3>
+    <p class="card-text">{{post.content}}</p>
   </div>
-<br>
- 
-  <div class="row">
-    {{#each posts as |post|}}
-      <div class="col-md-6 mb-2 post-list">
-        <h3><a href="/api/posts/edit/{{post.id}}">{{post.title}}</a></h3>
-      </div>
-    {{/each}}
- 
-  </div>
-
+  {{/each}}
 </div>
