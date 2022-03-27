@@ -20,5 +20,5 @@ const createPostHandler = async (event) => {
 };
   
 document
-    .querySelector('.create-post-form')
-    .addEventListener('submit', createPostHandler);
+    .getElementById('addpost')
+    .addEventListener('click', createPostHandler);
