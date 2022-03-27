@@ -1,6 +1,6 @@
 <div>
   <div class="row">
-    <h2>Welcome, {{user.username}}!</h2>
+    <h2>Welcome, {{username}}!</h2>
   </div>
 </div>
 
@@ -8,37 +8,23 @@
   <div class="row">
     <div class="col-md-6 border-bottom">
       <h3>Your Dashboard</h3>
-    </div>
-    <div class="col-md-6 text-right border-bottom">
+      </div>
+      <div class="col-md-6 text-right border-bottom">
       <h3><a href="/api/posts/create">Create Post</a></h3>
-    </div>
   </div>
-  <br>
+  </div>
+<br>
   {{#if posts.length}}
   <div class="row">
     {{#each posts as |post|}}
-    <div class="col-md-6 mb-2 post-list">
-      <header class="card-header card-header-title has-background-grey-lighter">
-
-        <div class="column">
-          <p class=" has-text-primary-light"></p>
-          <a href="/post/{{id}}" class="has-text-black is-capitalized is-pulled-left">{{title}} </a></p>
-        </div>
-
-        <div class="column">
-          <div class="content has-text-justified">
-            {{post_content}}
-          </div>
-        </div>
-
-      </header>
-    </div>
-    <a href="/api/posts/edit/{{post.id}}"><button>edit post</button></a>
-
+      <div class="col-md-6 mb-2 post-list">
+        <h3><a href="/api/posts/edit/{{post.id}}">{{post.title}}</a></h3>
+      </div>
     {{/each}}
-    
+  {{/if}}
   </div>
-  {{else}}
-  <h6 class="pb-4 has-text-centered is-italic">you do not currently have any posts</h6>
-{{/if}}
+
+  <div class="text-center">
+  </div>
+
 </div>

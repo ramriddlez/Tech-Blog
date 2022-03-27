@@ -55,23 +55,37 @@ router.get('/posts/:id', async (req,res) => {
 
 
 router.get('/dashboard', withAuth, async (req,res) => {
-    try{
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: BlogPost }],
-        });
-
-        const user = userData.get({ plain: true });
-
-        console.log(user);
-
-        res.render('dashboard', {
-            ...user, loggedIn: req.session.loggedIn
+    BlogPost.findAll({
+        where: {
+          // use the ID from the session
+          id: req.session.id
+        },
+        attributes: [
+          'id',
+          'title',
+          'date_created',
+          'content'
+        ],
+        include: [
+          {
+            model: Comment,
+            attributes: ['id', 'content', 'post_id', 'user_id', 'date_created'],
+            include: {
+              model: User,
+              attributes: ['username']
+            }
+          }]
+      })
+        .then(dbPostData => {
+          // serialize data before passing to template
+          const posts = dbPostData.map(post => post.get({ plain: true }));
+          res.render('dashboard', { posts, loggedIn: true });
         })
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    });
 
 
 router.get('/login', (req, res) => {
