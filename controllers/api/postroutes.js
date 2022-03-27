@@ -13,12 +13,12 @@ router.get('/create', async (req, res) => {
     }
 });
 
-router.post('/create', withAuth,  async (req, res) => {
+router.post('/create', async (req, res) => {
     try {
         const postData = await BlogPost.create({
             title: req.body.title,
             content: req.body.content,
-            id: req.session.id
+            
             
         });
 

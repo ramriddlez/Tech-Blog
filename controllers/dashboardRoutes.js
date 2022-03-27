@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
   BlogPost.findAll({
     where: {
       // use the ID from the session
-      id: req.session.id
+      user_id: req.session.id
     },
     attributes: [
       'id',
