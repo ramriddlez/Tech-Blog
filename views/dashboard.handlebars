@@ -14,17 +14,14 @@
   </div>
   </div>
 <br>
-  {{#if posts.length}}
+ 
   <div class="row">
     {{#each posts as |post|}}
       <div class="col-md-6 mb-2 post-list">
         <h3><a href="/api/posts/edit/{{post.id}}">{{post.title}}</a></h3>
       </div>
     {{/each}}
-  {{/if}}
-  </div>
-
-  <div class="text-center">
+ 
   </div>
 
 </div>
