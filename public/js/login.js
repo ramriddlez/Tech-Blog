@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to log in! Make sure password is atleast 6 characters!');
     }
@@ -23,13 +23,13 @@ const signupFormHandler = async (event) => {
   event.preventDefault();
 
   const username = document.querySelector('#new-username').value.trim();
-  const email = document.querySelector('#email').value.trim();
+  
   const password = document.querySelector('#new-pswd').value.trim();
 
-  if (username && email && password) {
-    const response = await fetch('/api/users', {
+  if (username && password) {
+    const response = await fetch('/api/users/signup', {
       method: 'POST',
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -45,7 +45,7 @@ document
   .querySelector('#sign-in')
   .addEventListener('click', loginFormHandler);
 console.log("connected")
-console.log(`signup element: ${document.getElementById('signup')}`)
+
 document
   .getElementById('signup')
   .addEventListener('click', signupFormHandler);

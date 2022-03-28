@@ -21,6 +21,7 @@
   "homepage": "https://github.com/ramriddlez/Tech-Blog#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "bootstrap": "^5.1.3",
     "bulma": "^0.9.3",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^16.0.0",
