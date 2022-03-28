@@ -30,7 +30,7 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#new-pswd').value.trim();
 
   if (username && password && email) {
-    const response = await fetch('/api/users/', {
+    const response = await fetch('/api/users/signup', {
       method: 'POST',
       body: JSON.stringify({ username, password, email }),
       headers: { 'Content-Type': 'application/json' },
@@ -38,7 +38,7 @@ const signupFormHandler = async (event) => {
 
     if (response.ok) {
       console.log('success');
-      document.location.replace('/dashboard');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }

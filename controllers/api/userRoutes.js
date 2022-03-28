@@ -4,40 +4,25 @@ const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
 
-// GET /api/users
-router.get('/', (req, res) => {
-  // Access our User model and run .findAll() method
-  User.findAll({
-      attributes: { exclude: ['password'] }
-  })
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-
 // CREATE new user
-router.post('/', async (req, res) => {
-   User.create({
+router.post('/signup', async (req, res) => {
+  try {
+    const userData = await User.create({
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password,
-    })
+      password: req.body.password
+    });
 
-      .then(dbUserData => {
-        req.session.save(() => {
-          req.session.user_id = dbUserData.id;
-          req.session.username = dbUserData.username;
-          req.session.loggedIn = true;
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.loggedIn = true;
 
-
-          res.status(200).json(dbUserData);
-        });
-      }) 
-  });
-
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 // Login
 router.post('/login', (req, res) => {
   User.findOne({
@@ -61,7 +46,7 @@ router.post('/login', (req, res) => {
       // declare session variables
       req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
-
+      console.log(req.session)
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
   });
